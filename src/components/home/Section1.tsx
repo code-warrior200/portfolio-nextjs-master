@@ -9,7 +9,7 @@ import Column from "@/components/core/Column";
 import Row from "@/components/core/Row";
 import ShootingStarEffect from "@/components/common/ShootingStar";
 import TalkButton from "./components/TalkButton";
-import ResumeButton from "./components/ResumeButton";
+//import ResumeButton from "./components/ResumeButton";
 import socialLinks from "@/data/socialLinks";
 
 const HomeSection1 = ({ id }: { id: string }) => {
@@ -26,7 +26,7 @@ const HomeSection1 = ({ id }: { id: string }) => {
             <Column classNames="max-w-full">
               <p className="text-base/6 drop_in">Hi 👋 I&apos;m</p>
 
-              <p className="text-4xl/normal md:text-5xl/normal font-bold text-[var(--primaryColor)] drop_in">
+              <p className="text-4xl/normal md:text-5xl/normal font-bold drop_in">
                 Abdulrahman Sadiq
               </p>
 
@@ -72,10 +72,10 @@ const HomeSection1 = ({ id }: { id: string }) => {
             </Column>
           </Column>
 
-          <Row classNames="w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] pointer-events-none justify-self-center sm:justify-self-end items-center justify-center rounded-full bg-transparent border-2 border-[var(--primaryColor60)] aspect-sqaure overflow-hidden my-auto drop_out">
-            <Row classNames="w-full h-auto items-center justify-center rounded-full bg-transparent border-[0.8rem] border-[var(--primaryColor30)] aspect-sqaure overflow-hidden pointer-events-none">
+          <Row classNames="w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] pointer-events-none justify-self-center sm:justify-self-end items-center justify-center rounded-full bg-transparent border-2 border-black aspect-sqaure overflow-hidden my-auto drop_out">
+            <Row classNames="w-full h-auto items-center justify-center rounded-full bg-transparent border-[0.8rem] border-grey-900 aspect-sqaure overflow-hidden pointer-events-none">
               <Image
-                src="/images/profile.jpeg"
+                src="/images/profile.jpg"
                 alt="profile"
                 width={400}
                 height={400}

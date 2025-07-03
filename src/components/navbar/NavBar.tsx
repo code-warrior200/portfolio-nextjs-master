@@ -94,23 +94,6 @@ const NavBar = () => {
     >
       <div className="h-full flex mx-auto px-4 py-6 constrained-width">
         <div className="w-full flex justify-between items-center">
-          <Link
-            href="/"
-            className="w-fit h-fit flex flex-row items-center justify-center"
-          >
-            <Image
-              src="/icon.png"
-              alt="profile"
-              width={80}
-              height={80}
-              sizes="100%"
-              priority
-              placeholder="blur"
-              blurDataURL="/icon.png"
-              className="w-10 lg:w-12 h-auto"
-            />
-          </Link>
-
           <div className="flex justify-end lg:relative">
             <button
               type="button"
