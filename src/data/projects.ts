@@ -10,7 +10,7 @@ const projects: IProjectItem[] = [
     repoType: RepoType.Public,
     githubUrl: "https://github.com/code-warriors80/school_site",
     url: "https://code-warriors-tech.github.io/school_website/",
-    tags: [],
+    tags: ["React.js","Tailwind"],
   },
   // {
   //   id: "e-commerce-app-mern",
