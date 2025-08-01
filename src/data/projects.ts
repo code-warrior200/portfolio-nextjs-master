@@ -33,7 +33,8 @@ const projects: IProjectItem[] = [
     githubUrl: "https://github.com/code-warrior200/faculty-journal",
     url: "https://faculty-journal.vercel.app/",
     tags: ["Tailwind css", "Next.js"],
-  },
+  }
+  
   // {
   //   id: "Company website",
   //   title: "Code warriors Tech Website ",
