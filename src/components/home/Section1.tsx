@@ -37,7 +37,7 @@ const HomeSection1 = ({ id }: { id: string }) => {
               <p className="text-base/normal mt-8 drop_in">
                 <Balancer>
                   Welcome to my portfolio! I am a passionate full-stack
-                  developer with 4+ years of experience. I specialize in
+                  developer with 6+ years of experience. I specialize in
                   creating user-centric software, proficient in both front-end
                   and back-end development across various platforms. I integrate
                   cutting-edge technology seamlessly while prioritizing design.
@@ -77,8 +77,8 @@ const HomeSection1 = ({ id }: { id: string }) => {
               <Image
                 src="/images/profile.jpg"
                 alt="profile"
-                width={400}
-                height={400}
+                width={500}
+                height={500}
                 sizes="100%"
                 priority
                 placeholder="blur"
