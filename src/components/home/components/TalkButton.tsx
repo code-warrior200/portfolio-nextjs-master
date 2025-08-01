@@ -6,7 +6,7 @@ const TalkButton = () => {
     <Link
       className="app__filled_btn min-w-[12rem]"
       href={Strings.telegramLink}
-      target="_blank"
+      target="abdulrahmansadiq02@gmail.com"
     >
       Let&apos;s Talk
     </Link>
