@@ -13,17 +13,6 @@ const projects: IProjectItem[] = [
     tags: ["React.js","Tailwind"],
   },
   {
-    id: "e-commerce-app-mern",
-    title: "E-commerce App",
-    description:
-      "A Fintech Stock trading Web App (landingpage) built with React.js, Redux, and Tailwind CSS.",
-    icon: "/skills/nextjs.svg",
-    repoType: RepoType.Public,
-    githubUrl: "https://github.com/Rabovel1/Website",
-    url: "https://www.rabovel.com/",
-    tags: ["Tailwind css", "Next.js"],
-  },
-  {
     id: "Rabovel landing page",
     title: "Rabovel Stock Trading landing page",
     description:
