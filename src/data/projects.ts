@@ -12,17 +12,17 @@ const projects: IProjectItem[] = [
     url: "https://code-warriors-tech.github.io/school_website/",
     tags: [],
   },
-  {
-    id: "e-commerce-app-mern",
-    title: "E-commerce App",
-    description:
-      "An e-commerce web application developed using React.js, Material UI, Redux, and Stripe.",
-    icon: "/skills/nextjs.svg",
-    repoType: RepoType.Public,
-    githubUrl: "https://github.com/code-warrior200/nextshop",
-    url: "#",
-    tags: ["React.js", "Redux","Tailwind css", "Stripe"],
-  },
+  // {
+  //   id: "e-commerce-app-mern",
+  //   title: "E-commerce App",
+  //   description:
+  //     "An e-commerce web application developed using React.js, Material UI, Redux, and Stripe.",
+  //   icon: "/skills/nextjs.svg",
+  //   repoType: RepoType.Public,
+  //   githubUrl: "https://github.com/code-warrior200/nextshop",
+  //   url: "#",
+  //   tags: ["React.js", "Redux","Tailwind css", "Stripe"],
+  // },
   {
     id: "Company website",
     title: "Code warriors Tech Website ",
