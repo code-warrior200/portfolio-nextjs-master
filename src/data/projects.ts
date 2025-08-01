@@ -34,17 +34,17 @@ const projects: IProjectItem[] = [
     url: "https://faculty-journal.vercel.app/",
     tags: ["Tailwind css", "Next.js"],
   },
-  {
-    id: "Company website",
-    title: "Code warriors Tech Website ",
-    description:
-      "A School website built with React.js, Tailwind css.",
-    icon: "/skills/nextjs.svg",
-    repoType: RepoType.Public,
-    githubUrl: "https://github.com/code-warriors80/codewarriors_site",
-    url: "https://codewarriorstech.org",
-    tags: ["Next.js","Type Script","Tailwind"],
-  }
+  // {
+  //   id: "Company website",
+  //   title: "Code warriors Tech Website ",
+  //   description:
+  //     "A School website built with React.js, Tailwind css.",
+  //   icon: "/skills/nextjs.svg",
+  //   repoType: RepoType.Public,
+  //   githubUrl: "https://github.com/code-warriors80/codewarriors_site",
+  //   url: "https://codewarriorstech.org",
+  //   tags: ["Next.js","Type Script","Tailwind"],
+  // }
 ];
 
 export default projects;
