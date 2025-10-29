@@ -1,18 +1,7 @@
 import { IProjectItem, RepoType } from "@/types";
 
 const projects: IProjectItem[] = [
-  {
-    id: "School website",
-    title: "School website",
-    description:
-      "A School website built using React.js & Tailwind.",
-    icon: "/skills/react.svg",
-    repoType: RepoType.Public,
-    githubUrl: "https://github.com/code-warriors80/school_site",
-    url: "https://code-warriors-tech.github.io/school_website/",
-    tags: ["React.js","Tailwind"],
-  },
-  {
+    {
     id: "University Website & Portal",
     title: "IBUAM University Website & Portal",
     description:
@@ -21,6 +10,17 @@ const projects: IProjectItem[] = [
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/IBUAM_Frontend",
     url: "https://www.ibuam.edu.ng/",
+    tags: ["Tailwind css", "Next.js"],
+  },
+  {
+    id: "Admin Dashboard",
+    title: "Love4you Admin Dashboard",
+    description:
+      "An Admin Dashboard for Love4you online dating/friendship platform built with Next.js, Tailwind CSS, Shadcn-ui, & Zustand(for state management).",
+    icon: "/skills/nextjs.svg",
+    repoType: RepoType.Public,
+    githubUrl: "https://github.com/Code-Warriors-Tech/loveforyou_admin",
+    url: "https://loveforyou-admin-qjqx.vercel.app/auth/login",
     tags: ["Tailwind css", "Next.js"],
   },
   {
@@ -34,18 +34,6 @@ const projects: IProjectItem[] = [
     url: "https://techframe.vercel.app/",
     tags: ["Tailwind css", "Shadcn-ui","Next.js"],
   }
-  
-  // {
-  //   id: "Company website",
-  //   title: "Code warriors Tech Website ",
-  //   description:
-  //     "A School website built with React.js, Tailwind css.",
-  //   icon: "/skills/nextjs.svg",
-  //   repoType: RepoType.Public,
-  //   githubUrl: "https://github.com/code-warriors80/codewarriors_site",
-  //   url: "https://codewarriorstech.org",
-  //   tags: ["Next.js","Type Script","Tailwind"],
-  // }
 ];
 
 export default projects;
