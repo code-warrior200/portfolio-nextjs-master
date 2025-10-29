@@ -27,6 +27,16 @@ const projects: IProjectItem[] = [
     id: "Business landing page/Website",
     title: "Techframe Website",
     description:
+      "A website for Amarits Consulting built with Next.js, Shadcn-ui, & Tailwind CSS.",
+    icon: "/skills/nextjs.svg",
+    repoType: RepoType.Public,
+    url: "https://www.amarits.com/",
+    tags: ["Tailwind css", "Shadcn-ui","Next.js"],
+  },
+  {
+    id: "Business landing page/Website",
+    title: "Techframe Website",
+    description:
       "A Journal website built with Next.js, Shadcn-ui, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
