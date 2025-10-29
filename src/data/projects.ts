@@ -10,7 +10,7 @@ const projects: IProjectItem[] = [
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/IBUAM_Frontend",
     url: "https://www.ibuam.edu.ng/",
-    tags: ["Tailwind css", "Next.js"],
+    tags: ["Tailwind css", "Shadcn", "Next.js"],
   },
   {
     id: "Admin Dashboard",
@@ -21,11 +21,11 @@ const projects: IProjectItem[] = [
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/loveforyou_admin",
     url: "https://loveforyou-admin-qjqx.vercel.app/auth/login",
-    tags: ["Tailwind css", "Next.js"],
+    tags: ["Tailwind css", "Shadcn", "Zustand", "Next.js"],
   },
   {
     id: "Business landing page/Website",
-    title: "Techframe Website",
+    title: "Amarits Website",
     description:
       "A website for Amarits Consulting built with Next.js, Shadcn-ui, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
