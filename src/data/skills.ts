@@ -39,21 +39,16 @@ const skills: ISkillListItem[] = [
         level: SkillLevel.Expert,
         icon: "/skills/flutter.svg",
       },
-      {
-        title: "HTML",
-        level: SkillLevel.Expert,
-        icon: "/skills/html.svg",
-      },
-      {
-        title: "CSS",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/css.svg",
-      },
-      {
-        title: "SASS",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/sass.svg",
-      },
+      // {
+      //   title: "HTML",
+      //   level: SkillLevel.Expert,
+      //   icon: "/skills/html.svg",
+      // },
+      // {
+      //   title: "CSS",
+      //   level: SkillLevel.Intermediate,
+      //   icon: "/skills/css.svg",
+      // },
     ],
   },
   {
@@ -68,12 +63,7 @@ const skills: ISkillListItem[] = [
         title: "Express",
         level: SkillLevel.Expert,
         icon: "/skills/express.svg",
-      },
-      {
-        title: "Nest.js",
-        level: SkillLevel.Begginer,
-        icon: "/skills/nestjs.svg",
-      },
+      }
     ],
   },
   {
@@ -91,7 +81,7 @@ const skills: ISkillListItem[] = [
       },
       {
         title: "MySQL",
-        level: SkillLevel.Begginer,
+        level: SkillLevel.Intermediate,
         icon: "/skills/mysql.svg",
       },
     ],
@@ -114,25 +104,15 @@ const skills: ISkillListItem[] = [
   {
     title: "Miscellaneous",
     items: [
-      // {
-      //   title: "WebSockets",
-      //   level: SkillLevel.Intermediate,
-      //   icon: "/images/logical-thinking.png",
-      // },
-      // {
-      //   title: "GetX",
-      //   level: SkillLevel.Expert,
-      //   icon: "/images/logical-thinking.png",
-      // },
+      {
+        title: "WebSockets",
+        level: SkillLevel.Intermediate,
+        icon: "/images/logical-thinking.png",
+      },
       {
         title: "Redux",
         level: SkillLevel.Expert,
         icon: "/skills/redux.svg",
-      },
-      {
-        title: "AWS",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/aws.svg",
       },
       {
         title: "Firebase",
