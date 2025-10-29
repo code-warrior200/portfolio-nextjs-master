@@ -13,26 +13,26 @@ const projects: IProjectItem[] = [
     tags: ["React.js","Tailwind"],
   },
   {
-    id: "Rabovel landing page",
-    title: "Rabovel Stock Trading landing page",
+    id: "University Website & Portal",
+    title: "IBUAM University Website & Portal",
     description:
-      "A Fintech Stock trading Web App (landingpage) built with React.js, Redux, and Tailwind CSS.",
+      "A University website & portal built with Next.js, Shadcn, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
-    githubUrl: "https://github.com/Rabovel1/Website",
-    url: "https://www.rabovel.com/",
+    githubUrl: "https://github.com/Code-Warriors-Tech/IBUAM_Frontend",
+    url: "https://www.ibuam.edu.ng/",
     tags: ["Tailwind css", "Next.js"],
   },
   {
-    id: "Faculty Journal",
-    title: "Faculty of Science education Journal",
+    id: "Business landing page/Website",
+    title: "Techframe Website",
     description:
-      "A Journal website built with Next.js and Tailwind CSS.",
+      "A Journal website built with Next.js, Shadcn-ui, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
-    githubUrl: "https://github.com/code-warrior200/faculty-journal",
-    url: "https://faculty-journal.vercel.app/",
-    tags: ["Tailwind css", "Next.js"],
+    githubUrl: "https://github.com/code-warrior200/techframe",
+    url: "https://techframe.vercel.app/",
+    tags: ["Tailwind css", "Shadcn-ui","Next.js"],
   }
   
   // {
