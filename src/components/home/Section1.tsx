@@ -73,7 +73,7 @@ const HomeSection1 = ({ id }: { id: string }) => {
                   variants={itemVariants}
                   className="text-base md:text-lg text-muted-foreground"
                 >
-                  Hi 👋 I&apos;m
+                  Hello 👋 I&apos;m
                 </motion.p>
 
                 <motion.h1
@@ -87,7 +87,7 @@ const HomeSection1 = ({ id }: { id: string }) => {
                   variants={itemVariants}
                   className="text-sm md:text-base font-medium text-muted-foreground"
                 >
-                  Software Engineer & Full Stack Developer
+                  Frontend Engineer
                 </motion.p>
 
                 <motion.p
@@ -95,10 +95,10 @@ const HomeSection1 = ({ id }: { id: string }) => {
                   className="text-base md:text-lg mt-8 text-muted-foreground"
                 >
                   <Balancer>
-                    Welcome to my portfolio! I am a passionate full-stack
-                    developer with 6+ years of experience. I specialize in
-                    creating user-centric software, proficient in both front-end
-                    and back-end development across various platforms. I integrate
+                    Welcome to my portfolio! I am a passionate frontend
+                    engineer with 6+ years of experience. I specialize in
+                    creating user-centric software, proficient in front-end
+                    development across various platforms. I integrate
                     cutting-edge technology seamlessly while prioritizing design.
                   </Balancer>
                 </motion.p>
