@@ -1,159 +1,156 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import useOnClickOutside from "@/hooks/useOnClickOutside";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import navMenus from "@/data/navMenus";
-import MenuItems from "@/components/navbar/MenuItems";
 import useVisibleSection from "@/hooks/useVisibleSection";
 import useScrolled from "@/hooks/useScrolled";
 
 const NavBar = () => {
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
-
   const visibleSection = useVisibleSection();
   const isScrolled = useScrolled();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const handleScroll = (id: string) => {
+    if (!id) return;
+    const element = document.getElementById(id);
+    if (!element) return;
+    const elementPosition = element.offsetTop;
+    const offsetPosition = elementPosition - 80; // Account for navbar height
 
-  const toggleMenu = () => {
-    if (!mobileMenuRef.current) return;
-    const cList = mobileMenuRef.current.classList;
-    if (
-      cList.contains("flex") &&
-      cList.contains("opacity-1") &&
-      cList.contains("z-[1000]") &&
-      cList.contains("visible")
-    ) {
-      hideMobileMenu();
-    } else {
-      showMobileMenu();
-    }
+    window.scroll({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+    setMobileMenuOpen(false);
   };
 
-  const showMobileMenu = () => {
-    if (!mobileMenuRef.current) return;
-    const cList = mobileMenuRef.current.classList;
-
-    if (
-      cList.contains("hidden") &&
-      cList.contains("opacity-0") &&
-      cList.contains("z-0") &&
-      cList.contains("invisible")
-    ) {
-      cList.remove("hidden");
-      cList.remove("opacity-0");
-      cList.remove("z-0");
-      cList.remove("invisible");
-    }
-
-    cList.add("flex");
-    cList.add("opacity-1");
-    cList.add("z-[1000]");
-    cList.add("visible");
-    setMobileMenuVisible(true);
+  const navVariants = {
+    initial: { y: -100, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
   };
-
-  const hideMobileMenu = () => {
-    if (!mobileMenuRef.current) return;
-    const cList = mobileMenuRef.current.classList;
-
-    if (
-      cList.contains("flex") &&
-      cList.contains("opacity-1") &&
-      cList.contains("z-[1000]") &&
-      cList.contains("visible")
-    ) {
-      cList.remove("flex");
-      cList.remove("opacity-1");
-      cList.remove("z-[1000]");
-      cList.remove("visible");
-    }
-
-    cList.add("hidden");
-    cList.add("opacity-0");
-    cList.add("z-0");
-    cList.add("invisible");
-    setMobileMenuVisible(false);
-  };
-
-  useOnClickOutside(navRef, hideMobileMenu);
 
   return (
-    <div
-      className={`fixed w-screen h-[5rem] z-[1000] top-0 ${
-        isScrolled ? "bg-[var(--dialogColor50)]" : "bg-[var(--dialogColor)]"
-      } ${isScrolled ? "backdrop-blur-sm" : "backdrop-blur-0"} ${
-        isScrolled ? "shadow-[0_4px_30px_rgba(0,0,0,0.1)]" : "shadow-none"
-      }`}
-      ref={navRef}
+    <motion.nav
+      variants={navVariants}
+      initial="initial"
+      animate="animate"
+      className={cn(
+        "fixed w-screen h-20 z-[1000] top-0 transition-all duration-300",
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md shadow-lg border-b border-border/40"
+          : "bg-background/95 backdrop-blur-sm"
+      )}
     >
-      <div className="h-full flex mx-auto px-4 py-6 constrained-width">
+      <div className="h-full flex mx-auto px-4 py-4 max-w-7xl">
         <div className="w-full flex justify-between items-center">
-          <div className="flex justify-end lg:relative">
-            <button
-              type="button"
-              name="menu-btn"
-              aria-label="menu button"
-              className="outline-none menu-button"
-              onClick={toggleMenu}
+          {/* Logo/Brand */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex items-center"
+          >
+            <Link
+              href="/"
+              className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
             >
-              {mobileMenuVisible ? (
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl/6 md:text-3xl/6 hover:scale-110 transition duration-300 ease-in-out"
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faBars}
-                  className="text-2xl/6 md:text-3xl/6 hover:scale-110 transition duration-300 ease-in-out"
-                />
-              )}
-            </button>
+              AS
+            </Link>
+          </motion.div>
 
-            {/*  Menu Items */}
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navMenus.map((menu, index) => {
+              const isActive = visibleSection === menu.id;
+              return (
+                <motion.div
+                  key={menu.id}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                >
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleScroll(menu.id)}
+                    className={cn(
+                      "relative px-4 py-2 h-auto font-medium transition-colors",
+                      isActive
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {menu.title}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
+                        initial={false}
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </Button>
+                </motion.div>
+              );
+            })}
+          </div>
 
-            <div
-              className="flex-col justify-center lg:justify-start items-center m-0 p-4 text-center bg-[var(--dialogColor)] w-screen lg:max-w-[16rem] h-screen lg:max-h-[22rem] absolute top-0 lg:top-[calc(100%+1rem)] right-0 transition duration-300 ease-in-out drop_out hidden opacity-0 z-0 invisible overflow-hidden lg:border-[1px] lg:rounded-[var(--borderRadius)]"
-              ref={mobileMenuRef}
-            >
-              <button
-                type="button"
-                name="close-mobile-menu-btn"
-                aria-label="close-mobile-menu-btn"
-                className="outline-none lg:hidden absolute top-4 right-4 z-[1001] group"
-                onClick={toggleMenu}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl/6 md:text-3xl/6 hover:scale-110 transition duration-300 ease-in-out"
-                />
-              </button>
-
-              <div className="w-full flex flex-col list-none justify-center lg:justify-start items-center gap-4">
+          {/* Mobile Menu */}
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild className="lg:hidden">
+              <Button variant="ghost" size="icon" className="lg:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col gap-4 mt-8">
                 {navMenus.map((menu, index) => {
-                  const depthLevel = 0;
+                  const isActive = visibleSection === menu.id;
                   return (
-                    <MenuItems
-                      items={menu}
-                      key={`mobile-menu-item-${index}`}
-                      depthLevel={depthLevel}
-                      mobileNav={mobileMenuVisible}
-                      handleCloseMobileMenu={hideMobileMenu}
-                      current={visibleSection}
-                    />
+                    <motion.div
+                      key={menu.id}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 * index }}
+                    >
+                      <Button
+                        variant="ghost"
+                        onClick={() => handleScroll(menu.id)}
+                        className={cn(
+                          "w-full justify-start text-lg h-auto py-3 px-4",
+                          isActive
+                            ? "text-primary bg-accent"
+                            : "text-muted-foreground"
+                        )}
+                      >
+                        {menu.title}
+                      </Button>
+                    </motion.div>
                   );
                 })}
               </div>
-            </div>
-          </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-    </div>
+    </motion.nav>
   );
 };
 

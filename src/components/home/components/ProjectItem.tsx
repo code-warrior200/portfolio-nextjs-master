@@ -1,112 +1,128 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { RepoType, type IProjectItem } from "@/types";
 import { Balancer } from "react-wrap-balancer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Column from "@/components/core/Column";
-import Row from "@/components/core/Row";
-import CardBox from "@/components/core/CardBox";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
-const ProjectItem = ({ project }: { project: IProjectItem }) => {
-  const router = useRouter();
-
-  const _handleNavigateToPage = (id: string) => {
-    if (!id || id.length < 1) return;
-
-    router.push(`/projects?id=${id}`);
-  };
+const ProjectItem = ({
+  project,
+  index,
+}: {
+  project: IProjectItem;
+  index: number;
+}) => {
 
   return (
-    <CardBox
-      classNames="min-w-[25rem] min-h-[28rem] p-4 gap-8 items-center justify-between bg-[var(--textColor10)] group slide_in cursor-pointer"
-      // onClick={() => _handleNavigateToPage(project.id)}
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -8 }}
+      className="h-full"
     >
-      <Column classNames="w-full items-center justify-start">
-        <Row classNames="w-[2.5rem] md:w-[3rem] aspect-square items-center justify-center">
-          <Image
-            src={project.icon}
-            alt={`project-${project.title}`}
-            width={100}
-            height={100}
-            sizes="100%"
-            loading="lazy"
-            placeholder="blur"
-            blurDataURL={project.icon}
-            className="w-full h-full object-cover aspect-square"
-          />
-        </Row>
+      <Card className="h-full flex flex-col group hover:shadow-xl hover:border-primary/50 transition-all duration-300">
+        <CardHeader className="text-center space-y-4">
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="flex justify-center"
+          >
+            <div className="w-12 md:w-16 aspect-square relative">
+              <Image
+                src={project.icon}
+                alt={`project-${project.title}`}
+                fill
+                sizes="(max-width: 768px) 48px, 64px"
+                className="object-cover rounded-lg"
+                loading="lazy"
+              />
+            </div>
+          </motion.div>
 
-        <p className="text-lg/6 font-semibold mt-4">{project.title}</p>
+          <CardTitle className="text-xl md:text-2xl">{project.title}</CardTitle>
 
-        <div
-          className={`flex flex-row items-center justify-center rounded-full py-[0.05] px-[0.5rem] mt-4 capitalize text-center border ${
-            project.repoType === RepoType.Private
-              ? "text-[var(--errorColor)] border-[var(--errorColor50)]"
-              : "text-[var(--successColor)] border-[var(--successColor50)]"
-          }`}
-        >
-          <p className="text-xs/6 font-semibold">
+          <Badge
+            variant={
+              project.repoType === RepoType.Private
+                ? "destructive"
+                : "default"
+            }
+            className="w-fit mx-auto"
+          >
             {project.repoType === RepoType.Private ? "Private" : "Public"}
-          </p>
-        </div>
+          </Badge>
 
-        <Row classNames="w-full items-center justify-center mt-4 gap-2">
-          {project.githubUrl ? (
-            <Link
-              href={project.githubUrl}
-              aria-label={`${project.title} GitHub URL`}
-              target="_blank"
-              className="app__outlined_btn !rounded-full !p-2 lg:!p-3 !aspect-square !border-[var(--textColor)]"
-            >
-              <FontAwesomeIcon
-                icon={faGithub}
-                className="text-base/6 text-[var(--textColor)]"
-              />
-            </Link>
-          ) : null}
+          <div className="flex justify-center gap-2">
+            {project.githubUrl && (
+              <Button
+                asChild
+                variant="outline"
+                size="icon"
+                className="rounded-full"
+              >
+                <Link
+                  href={project.githubUrl}
+                  aria-label={`${project.title} GitHub URL`}
+                  target="_blank"
+                >
+                  <Github className="h-4 w-4" />
+                </Link>
+              </Button>
+            )}
 
-          {project.url ? (
-            <Link
-              href={project.url}
-              aria-label={`${project.title} Project URL`}
-              target="_blank"
-              className="app__outlined_btn !rounded-full !p-2 lg:!p-3 !aspect-square !border-[var(--textColor)]"
-            >
-              <FontAwesomeIcon
-                icon={faEye}
-                className="text-base/6 text-[var(--textColor)]"
-              />
-            </Link>
-          ) : null}
-        </Row>
-      </Column>
+            {project.url && (
+              <Button
+                asChild
+                variant="outline"
+                size="icon"
+                className="rounded-full"
+              >
+                <Link
+                  href={project.url}
+                  aria-label={`${project.title} Project URL`}
+                  target="_blank"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                </Link>
+              </Button>
+            )}
+          </div>
+        </CardHeader>
 
-      <Column classNames="w-full items-center">
-        <p className="text-center text-base/6">
-          <Balancer>{project.description}</Balancer>
-        </p>
+        <CardContent className="flex-1 space-y-4">
+          <CardDescription className="text-center text-base">
+            <Balancer>{project.description}</Balancer>
+          </CardDescription>
 
-        {project.tags && project.tags.length > 0 ? (
-          <Row classNames="w-full items-center justify-center flex-wrap mt-4">
-            {project.tags.map((tag, i) => {
-              return (
-                <p
+          {project.tags && project.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 justify-center">
+              {project.tags.map((tag, i) => (
+                <Badge
                   key={`tag-${i}`}
-                  className="rounded-[var(--borderRadius)] border border-[var(--textColor50)] py-[.125rem] px-2 mr-2 mb-2 text-xs/6 font-normal"
+                  variant="outline"
+                  className="text-xs"
                 >
                   {tag}
-                </p>
-              );
-            })}
-          </Row>
-        ) : null}
-      </Column>
-    </CardBox>
+                </Badge>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 

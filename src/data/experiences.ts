@@ -2,9 +2,9 @@ import { IExperienceItem } from "@/types";
 
 const experiences: IExperienceItem[] = [
   {
-    designation: "Full Stack Web Developer",
+    designation: "Frontend Engineer",
     company: "Code Warriors Tech",
-    startDate: "July 2022",
+    startDate: "July 2023",
     endDate: "",
     isCurrentJob: false,
     location: "Remote",
@@ -26,17 +26,17 @@ const experiences: IExperienceItem[] = [
       "As a Full Stack Development Intern, I had the invaluable opportunity to make a significant impact by revamping and enhancing more than three mobile apps using Flutter, showcasing my expertise in the field of mobile development. I played a pivotal role in the development process by deploying RESTful APIs, enabling seamless integration between mobile applications and servers, thereby enhancing the overall user experience and functionality of these apps. Furthermore, I leveraged my skills to integrate Google AdMob into these applications, strategically monetizing them and effectively boosting revenue generation. My contributions as an intern reflect my dedication to staying current with modern tech stacks and best practices, ultimately delivering meaningful results to the projects I worked on.",
   },
   {
-    designation: "Full Stack Developer",
-    company: "Qlass Up Tech",
-    startDate: "Feb 2021",
-    endDate: "Jan 2022 ",
+    designation: "Frontend Developer",
+    company: "Rabovel Technology",
+    startDate: "Feb 2024",
+    endDate: "",
     isCurrentJob: true,
-    location: "Zaria, Kaduna State, Nigeria",
+    location: "Remote",
     shortDescription:
-      "I have a proven track record of success, having developed an Educational web application that seamlessly integrate backend APIs.",
+      "I have a proven track record of success, having developed a website landing page & also developed a mobile app for the company.",
     description:
-      "As a Full Stack Developer, I have a proven track record of success, having developed an Eductional web applications that seamlessly integrate backend APIs using modern tech stacks and adhering to the highest standards of clean code practices. My commitment to efficiency is reflected in my work, where I have streamlined workflows across various projects, eliminating redundant data requirements and significantly improving overall efficiency. One of my standout achievements includes achieving an impressive 80% faster website loading time. I accomplished this by optimizing images, minimizing main-thread work, and implementing robust SEO strategies to enhance user experience and website performance. In addition to my development skills, I've also demonstrated my expertise in both backend and frontend development by resolving over 100 bugs. My thorough and comprehensive code reviews showcase my dedication to delivering high-quality solutions that not only meet but exceed expectations. As a full-stack developer, I am passionate about driving innovation and excellence in every project I undertake.",
-  },
+      "Rabovel is a Financial Technology Company that provides financial services to individuals and businesses. I was hired as a Frontend Developer to create a website landing page and also developed a mobile app for the company."
+  }
 ];
 
 export default experiences;
