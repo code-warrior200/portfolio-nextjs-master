@@ -78,7 +78,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         }
       >
         <NavBar />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
         <ScrollToTop />
       </body>
     </html>

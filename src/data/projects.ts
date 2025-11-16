@@ -37,12 +37,22 @@ const projects: IProjectItem[] = [
     id: "Business landing page/Website",
     title: "Techframe Website",
     description:
-      "A Journal website built with Next.js, Shadcn-ui, & Tailwind CSS.",
+      "A simple business Landing page",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
     githubUrl: "https://github.com/code-warrior200/techframe",
     url: "https://techframe.vercel.app/",
     tags: ["Tailwind css", "Shadcn-ui","Next.js"],
+  },
+  {
+    id: "Rabovel Stock Trading App",
+    title: "Rabovel Stock Trading App",
+    description:
+      "A stock trading and staking platform mobile app built with React Native and Expo.",
+    icon: "/skills/react.svg",
+    repoType: RepoType.Private,
+    url: "https://expo.dev/accounts/code-warrior01/projects/rabovel-staking-platform/builds/fb1e0f7b-938f-4879-a28f-c108c403e86f",
+    tags: ["React Native", "Expo", "Mobile App"],
   }
 ];
 

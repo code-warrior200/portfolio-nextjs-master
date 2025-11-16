@@ -1,34 +1,80 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { IServiceItem } from "@/types";
 import { Balancer } from "react-wrap-balancer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CardBox from "@/components/core/CardBox";
-import Column from "@/components/core/Column";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-const ServiceItem = ({ data }: { data: IServiceItem }) => {
+const ServiceItem = ({ data, index }: { data: IServiceItem; index: number }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <CardBox classNames="p-4 items-center text-center bg-[var(--textColor10)] group min-h-80">
-      <Column classNames="items-center justify-between w-full h-full gap-12">
-        <Column classNames="items-center justify-start">
-          <span className="text-3xl/6 md:text-4xl/6 text-[var(--primaryColor)]">
-            <FontAwesomeIcon icon={data.icon} />
-          </span>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="h-full"
+    >
+      <Card
+        className={cn(
+          "relative h-full min-h-[320px] overflow-hidden transition-all duration-300 cursor-pointer group",
+          "hover:shadow-xl hover:border-primary/50"
+        )}
+      >
+        <CardHeader className="text-center space-y-4">
+          <motion.div
+            animate={{
+              scale: isHovered ? 1.1 : 1,
+              rotate: isHovered ? 5 : 0,
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="flex justify-center"
+          >
+            <span className="text-4xl md:text-5xl text-primary">
+              <FontAwesomeIcon icon={data.icon} />
+            </span>
+          </motion.div>
 
-          <p className="text-lg/6 font-semibold mt-4">{data.title}</p>
-        </Column>
+          <CardTitle className="text-xl md:text-2xl">{data.title}</CardTitle>
 
-        <span className="w-8 h-1 bg-[var(--primaryColor)] rounded-full"></span>
+          <div className="w-12 h-1 bg-primary rounded-full mx-auto" />
+        </CardHeader>
 
-        <p className="text-base/6 font-normal">
-          <Balancer>{data.shortDescription}</Balancer>
-        </p>
-      </Column>
+        <CardContent className="space-y-4">
+          <CardDescription className="text-base">
+            <Balancer>{data.shortDescription}</Balancer>
+          </CardDescription>
 
-      <div className="absolute left-0 right-0 top-[-200%] bottom-0 w-full h-auto min-h-full scroll-smooth overflow-hidden overflow-y-auto p-4 bg-zinc-800 hidden invisible opacity-0 transition duration-500 ease-in-out slide_in group-hover:flex group-hover:top-0 group-hover:visible group-hover:opacity-100 group-hover:z-10">
-        <p className="text-base/6 font-normal m-auto text-center">
-          <Balancer preferNative={false}>{data.description}</Balancer>
-        </p>
-      </div>
-    </CardBox>
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <CardDescription className="text-sm mt-4 pt-4 border-t border-border">
+                  <Balancer preferNative={false}>{data.description}</Balancer>
+                </CardDescription>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 

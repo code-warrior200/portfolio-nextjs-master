@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Balancer } from "react-wrap-balancer";
@@ -9,90 +12,170 @@ import Column from "@/components/core/Column";
 import Row from "@/components/core/Row";
 import ShootingStarEffect from "@/components/common/ShootingStar";
 import TalkButton from "./components/TalkButton";
-//import ResumeButton from "./components/ResumeButton";
+import { Button } from "@/components/ui/button";
 import socialLinks from "@/data/socialLinks";
 
 const HomeSection1 = ({ id }: { id: string }) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: -10 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <ResponsiveBox
-      classNames="bg-[var(--dialogColor)] min-h-[calc(100vh-5rem)] items-center justify-center relative"
+      classNames="bg-card min-h-[calc(100vh-5rem)] items-center justify-center relative overflow-hidden"
       id={id}
     >
       <ShootingStarEffect />
 
-      <ConstraintedBox classNames="px-4 py-8 z-[5]">
-        <GridBox classNames="justify-items-stretch !gap-16 lg:!gap-8">
-          <Column classNames="justify-center max-w-full sm:max-w-sm md:max-w-md lg:max-w-lg">
-            <Column classNames="max-w-full">
-              <p className="text-base/6 drop_in">Hi 👋 I&apos;m</p>
+      <ConstraintedBox classNames="px-4 py-8 z-[5] h-full flex items-center">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full"
+        >
+          <GridBox classNames="justify-items-center items-center !gap-16 lg:!gap-8">
+            <Column classNames="justify-center items-center text-center lg:text-left max-w-full sm:max-w-sm md:max-w-md lg:max-w-lg">
+              <Column classNames="max-w-full space-y-4 w-full">
+                <motion.p
+                  variants={itemVariants}
+                  className="text-base md:text-lg text-muted-foreground"
+                >
+                  Hi 👋 I&apos;m
+                </motion.p>
 
-              <p className="text-4xl/normal md:text-5xl/normal font-bold drop_in">
-                Abdulrahman Sadiq
-              </p>
+                <motion.h1
+                  variants={itemVariants}
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
+                >
+                  Abdulrahman Sadiq
+                </motion.h1>
 
-              <p className="text-sm/6 font-medium text-[var(--textColorLight)] drop_in">
-                Software Enginner & Full Stack Developer
-              </p>
+                <motion.p
+                  variants={itemVariants}
+                  className="text-sm md:text-base font-medium text-muted-foreground"
+                >
+                  Software Engineer & Full Stack Developer
+                </motion.p>
 
-              <p className="text-base/normal mt-8 drop_in">
-                <Balancer>
-                  Welcome to my portfolio! I am a passionate full-stack
-                  developer with 6+ years of experience. I specialize in
-                  creating user-centric software, proficient in both front-end
-                  and back-end development across various platforms. I integrate
-                  cutting-edge technology seamlessly while prioritizing design.
-                </Balancer>
-              </p>
+                <motion.p
+                  variants={itemVariants}
+                  className="text-base md:text-lg mt-8 text-muted-foreground"
+                >
+                  <Balancer>
+                    Welcome to my portfolio! I am a passionate full-stack
+                    developer with 6+ years of experience. I specialize in
+                    creating user-centric software, proficient in both front-end
+                    and back-end development across various platforms. I integrate
+                    cutting-edge technology seamlessly while prioritizing design.
+                  </Balancer>
+                </motion.p>
 
-              <Column classNames="gap-4 mt-8 lg:mt-16 lg:flex-row">
-                <TalkButton />
+                <motion.div
+                  variants={itemVariants}
+                  className="mt-8 lg:mt-16"
+                >
+                  <TalkButton />
+                </motion.div>
               </Column>
+
+              <motion.div
+                variants={itemVariants}
+                className="mt-8 lg:mt-16"
+              >
+                <p className="text-base md:text-lg font-semibold mb-4">
+                  Follow me here
+                </p>
+
+                <Row classNames="mt-2 gap-2 flex-wrap">
+                  {socialLinks.slice(0, 5).map((link, index) => {
+                    return (
+                      <motion.div
+                        key={`social-link-${index}`}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                          delay: 0.5 + index * 0.1,
+                          type: "spring",
+                          stiffness: 200,
+                        }}
+                        whileHover={{ scale: 1.1, y: -5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="icon"
+                          className="rounded-full"
+                        >
+                          <Link
+                            href={link.url}
+                            target="_blank"
+                            aria-label={link.name}
+                          >
+                            <FontAwesomeIcon icon={link.icon} />
+                          </Link>
+                        </Button>
+                      </motion.div>
+                    );
+                  })}
+                </Row>
+              </motion.div>
             </Column>
 
-            <Column classNames="mt-8 lg:mt-16 drop_out">
-              <p className="text-base/6 font-semibold">Follow me here</p>
-
-              <Row classNames="mt-2 gap-2">
-                {socialLinks.slice(0, 5).map((link, index) => {
-                  return (
-                    <Link
-                      key={`social-link-${index}`}
-                      href={link.url}
-                      target="_blank"
-                      className="app__outlined_btn !rounded-full !p-2 lg:!p-3 !aspect-square !border-[var(--textColor)]"
-                      aria-label={`${link.name}`}
-                    >
-                      <span className="text-base/6 text-[var(--whiteColor)]">
-                        <FontAwesomeIcon icon={link.icon} />
-                      </span>
-                    </Link>
-                  );
-                })}
-              </Row>
-            </Column>
-          </Column>
-
-          <Row classNames="w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] pointer-events-none justify-self-center sm:justify-self-end items-center justify-center rounded-full bg-transparent border-2 border-black aspect-sqaure overflow-hidden my-auto drop_out">
-            <Row classNames="w-full h-auto items-center justify-center rounded-full bg-transparent border-[0.8rem] border-grey-900 aspect-sqaure overflow-hidden pointer-events-none">
-              <Image
-                src="/images/profile.jpg"
-                alt="profile"
-                width={500}
-                height={500}
-                sizes="100%"
-                priority
-                placeholder="blur"
-                blurDataURL="/images/profile.webp"
-                style={{
-                  objectFit: "cover",
-                  width: "100%",
-                  height: "100%",
-                  aspectRatio: "1 / 1",
-                }}
-              />
-            </Row>
-          </Row>
-        </GridBox>
+            <motion.div
+              variants={imageVariants}
+              className="w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] justify-self-center items-center justify-center rounded-full border-2 border-border overflow-hidden relative mx-auto"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="w-full h-full rounded-full border-[0.8rem] border-muted overflow-hidden relative"
+              >
+                <Image
+                  src="/images/profile.jpg"
+                  alt="profile"
+                  fill
+                  sizes="(max-width: 1024px) 320px, 400px"
+                  priority
+                  className="object-cover"
+                />
+              </motion.div>
+            </motion.div>
+          </GridBox>
+        </motion.div>
       </ConstraintedBox>
     </ResponsiveBox>
   );

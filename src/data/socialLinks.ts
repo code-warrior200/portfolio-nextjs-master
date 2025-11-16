@@ -4,7 +4,6 @@ import {
   faInstagram,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-//import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Strings from "@/constants/strings";
 import type { ISocialLinkItem } from "@/types";
 

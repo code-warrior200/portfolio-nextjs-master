@@ -94,7 +94,7 @@ const MenuItems = (props: MenutItemProps) => {
         >
           <p>{items.title}</p>
         </button>
-      )}{" "}
+      )}
     </li>
   );
 };
