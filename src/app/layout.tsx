@@ -41,14 +41,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: [
-    {
-      url: "/favicon.ico",
-      rel: "icon",
-      sizes: "any",
-      type: "image/svg+xml",
-    },
-  ],
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
 };
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
@@ -78,7 +74,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         }
       >
         <NavBar />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
         <ScrollToTop />
       </body>
     </html>
