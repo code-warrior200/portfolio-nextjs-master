@@ -12,15 +12,28 @@ const projects: IProjectItem[] = [
     url: "https://www.ibuam.edu.ng/",
     tags: ["Tailwind css", "Shadcn", "Next.js"],
   },
+
   {
-    id: "Admin Dashboard",
-    title: "Love4you Admin Dashboard",
+    id: "SVGC website",
+    title: "Student Venture Government Capital",
     description:
-      "An Admin Dashboard for Love4you online dating/friendship platform built with Next.js, Tailwind CSS, Shadcn-ui, & Zustand(for state management).",
+      "A University website & portal built with Next.js, Shadcn, & Tailwind CSS.",
+    icon: "/skills/nextjs.svg",
+    repoType: RepoType.Private,
+    githubUrl: "https://github.com/Seismic-Consulting-Limited/svcg-frontend",
+    url: "https://svcg.education.gov.ng",
+    tags: ["Tailwind css", "Shadcn", "Next.js"],
+  },
+
+  {
+    id: "E-commerce",
+    title: "NiceShop",
+    description:
+      "An e-commerce platform built with Next.js, Tailwind CSS, Shadcn-ui, & Zustand(for state management).",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/loveforyou_admin",
-    url: "https://loveforyou-admin-qjqx.vercel.app/auth/login",
+    url: "https://nextshop-ecru.vercel.app/",
     tags: ["Tailwind css", "Shadcn", "Zustand", "Next.js"],
   },
   {
