@@ -29,7 +29,7 @@ const projects: IProjectItem[] = [
     id: "E-commerce",
     title: "NiceShop",
     description:
-      "An e-commerce platform built with Next.js, Tailwind CSS, Shadcn-ui, & Zustand(for state management).",
+      "An e-commerce platform built with Next.js,Shadcn-ui & Zustand(for state management).",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/loveforyou_admin",
