@@ -7,7 +7,7 @@ const projects: IProjectItem[] = [
     description:
       "Built with Next.js, Shadcn, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
-    repoType: RepoType.Public,
+    repoType: RepoType.Private,
     githubUrl: "https://github.com/Code-Warriors-Tech/IBUAM_Frontend",
     url: "https://www.ibuam.edu.ng/",
     tags: ["Tailwind css", "Shadcn", "Next.js"],
@@ -42,7 +42,7 @@ const projects: IProjectItem[] = [
     description:
       "Built with Next.js, Shadcn-ui, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
-    repoType: RepoType.Public,
+    repoType: RepoType.Private,
     url: "https://www.amarits.com/",
     tags: ["Tailwind css", "Shadcn-ui","Next.js"],
   },
