@@ -5,7 +5,7 @@ const projects: IProjectItem[] = [
     id: "University Website & Portal",
     title: "IBUAM University Website & Portal",
     description:
-      "A University website & portal built with Next.js, Shadcn, & Tailwind CSS.",
+      "Built with Next.js, Shadcn, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/IBUAM_Frontend",
@@ -17,7 +17,7 @@ const projects: IProjectItem[] = [
     id: "SVGC website",
     title: "Student Venture Government Capital",
     description:
-      "A University website & portal built with Next.js, Shadcn, & Tailwind CSS.",
+      "Built with Next.js, Shadcn, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Private,
     githubUrl: "https://github.com/Seismic-Consulting-Limited/svcg-frontend",
@@ -29,7 +29,7 @@ const projects: IProjectItem[] = [
     id: "E-commerce",
     title: "NiceShop",
     description:
-      "An e-commerce platform built with Next.js,Shadcn-ui & Zustand(for state management).",
+      "Built with Next.js,Shadcn-ui & Zustand(for state management).",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
     githubUrl: "https://github.com/Code-Warriors-Tech/loveforyou_admin",
@@ -40,7 +40,7 @@ const projects: IProjectItem[] = [
     id: "Business landing page/Website",
     title: "Amarits Website",
     description:
-      "A website for Amarits Consulting built with Next.js, Shadcn-ui, & Tailwind CSS.",
+      "Built with Next.js, Shadcn-ui, & Tailwind CSS.",
     icon: "/skills/nextjs.svg",
     repoType: RepoType.Public,
     url: "https://www.amarits.com/",
